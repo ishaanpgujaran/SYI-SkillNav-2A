@@ -1,0 +1,446 @@
+{% extends "base.html" %}
+
+{% block title %} Web Development | SkillNav {% endblock %}
+
+{% block content %}
+<!-- New Bootstrap Header Not in Use 
+<header class="header header-customcol ">
+    <h1>Web Development Resources</h1>
+    <p>Explore curated resources to master HTML, CSS, JavaScript, and more!</p>
+</header>
+-->
+
+<!-- Introduction Section -->
+<section id="webdev-intro" class="py-5 text-center">
+    <div class="container">
+        <h1 class="display-4">Welcome to Web Development</h1>
+        <p class="lead">Master the art of building beautiful, responsive websites with HTML, CSS, JavaScript, and more.</p>
+        <a href="#roadmap" class="btn btn-primary btn-lg mt-3">Get Started with Web Development</a>
+    </div>
+</section>
+
+
+
+
+
+<!-- Roadmap Section with Tabs -->
+<section id="roadmap" class="py-5 bg-white">
+    <div class="container">
+        <h2 class="text-center mb-4">Web Development Roadmap</h2>
+        
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs justify-content-center" id="roadmapTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="visual-tab" data-bs-toggle="tab" data-bs-target="#visual-roadmap" type="button" role="tab" aria-controls="visual-roadmap" aria-selected="true">
+                    Visual Roadmap
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="topics-tab" data-bs-toggle="tab" data-bs-target="#topics-list" type="button" role="tab" aria-controls="topics-list" aria-selected="false">
+                    Topic List
+                </button>
+            </li>
+        </ul>
+        
+        <!-- Tab Content -->
+        <div class="tab-content mt-4" id="roadmapTabContent">
+            <!-- Visual Roadmap Content -->
+            <div class="tab-pane fade show active" id="visual-roadmap" role="tabpanel" aria-labelledby="visual-tab">
+                <!-- Placeholder for the interactive visual roadmap (to be created in Step 2) -->
+                <!-- Visual Roadmap Section Embedded with Google Drive -->
+                <div id="visual-roadmap" style="width: 100%; height: 700px; border: none ; margin: 20px 0;">
+                    <iframe 
+                        src="https://drive.google.com/file/d/1KaUapQ_vGGn41lqk6eIR5SPzmjxbGmo7/preview" 
+                        style="width: 100%; height: 100%; border: none; border-radius: 8px;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    </iframe>
+                </div>
+            </div>
+            
+            <!-- Topics List Content -->
+            <div class="tab-pane fade" id="topics-list" role="tabpanel" aria-labelledby="topics-tab">
+                <!-- Topic List Content with Tabs for Table View -->
+                <!-- Tab Navigation for Topics -->
+                <div class="text-center mb-2">
+                    <button id="frontend-tab" class="topic-tab active-btn">Frontend</button>
+                    <button id="backend-tab" class="topic-tab inactive-btn">Backend</button>
+                    <button id="devops-tab" class="topic-tab inactive-btn">DevOps</button>
+                </div>
+
+                <!-- Frontend Table -->
+                <div id="frontend-table" class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>Main Topic</th>
+                                <th>Subtopics</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Backend Table (Hidden by default) -->
+                <div id="backend-table" class="table-responsive" style="display: none;">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>Main Topic</th>
+                                <th>Subtopics</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- DevOps Table (Hidden by default) -->
+                <div id="devops-table" class="table-responsive" style="display: none;">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>Main Topic</th>
+                                <th>Subtopics</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- Resources Section -->
+<section id="resources" class="py-5 bg-white">
+    <div class="container">
+        <h2 class="text-center mb-4">Web Development Resources</h2>
+        
+        <!-- Tabs for Top Resources and All Resources -->
+        <ul class="nav nav-tabs justify-content-center mb-4" id="resourceTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="top-resources-tab" data-bs-toggle="tab" data-bs-target="#top-resources" type="button" role="tab" aria-controls="top-resources" aria-selected="true">
+                    Top Resources
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="all-resources-tab" data-bs-toggle="tab" data-bs-target="#all-resources" type="button" role="tab" aria-controls="all-resources" aria-selected="false">
+                    All Resources
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab Contents for Resources -->
+        <div class="tab-content" id="resourceTabContent">
+            <!-- Top Resources Content -->
+            <div class="tab-pane fade show active" id="top-resources" role="tabpanel" aria-labelledby="top-resources-tab">
+                <div id="top-resources-list" class="row gy-4">
+                    {% for resource in top_resources %}
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="{{ resource[9] }}" class="card-img-top" alt="{{ resource[0] }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ resource[0] }}</h5> <!-- Title -->
+                                <p class="card-text"><strong>Creator:</strong> {{ resource[1] }}</p> <!-- Creator -->
+                                <p class="card-text"><strong>Description:</strong> {{ resource[2] }}</p> <!-- Description -->
+                                <p class="card-text"><strong>Platform:</strong> {{ resource[3] }}</p> <!-- Platform -->
+                                <p class="card-text"><strong>Duration:</strong> {{ resource[4] }}</p> <!-- Duration -->
+                                <p class="card-text"><strong>Views:</strong> {{ resource[5] }}</p> <!-- Views -->
+                                <p class="card-text"><strong>Likes:</strong> {{ resource[6] }}</p> <!-- Likes -->
+                                <p class="card-text"><strong>Published On:</strong> {{ resource[7] }}</p> <!-- Published On -->
+                                <p class="card-text"><strong>Type:</strong> {{ resource[10] }}</p> <!-- Type -->
+                                <p class="card-text"><strong>Difficulty:</strong> {{ resource[11] }}</p> <!-- Difficulty -->
+                                <a href="{{ resource[8] }}" class="btn btn-primary" target="_blank">View Resource</a> <!-- Link Button -->
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            
+            <!-- All Resources Content -->
+            <div class="tab-pane fade" id="all-resources" role="tabpanel" aria-labelledby="all-resources-tab">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Thumbnail</th>
+                                <th>Title</th>
+                                <th>Creator</th>
+                                <th>Description</th>
+                                <th>Platform</th>
+                                <th>Duration</th>
+                                <th>Views</th>
+                                <th>Likes</th>
+                                <th>Published On</th>
+                                <th>Type</th>
+                                <th>Difficulty</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for resource in all_resources %}
+                            <tr>
+                                <td><img src="{{ resource[9] }}" alt="{{ resource[0] }}" style="width: 120px; height: auto;"></td> <!-- Thumbnail -->
+                                <td>{{ resource[0] }}</td> <!-- Title -->
+                                <td>{{ resource[1] }}</td> <!-- Creator -->
+                                <td>{{ resource[2] }}</td> <!-- Description -->
+                                <td>{{ resource[3] }}</td> <!-- Platform -->
+                                <td>{{ resource[4] }}</td> <!-- Duration -->
+                                <td>{{ resource[5] }}</td> <!-- Views -->
+                                <td>{{ resource[6] }}</td> <!-- Likes -->
+                                <td>{{ resource[7] }}</td> <!-- Published On -->
+                                <td>{{ resource[10] }}</td> <!-- Type -->
+                                <td>{{ resource[11] }}</td> <!-- Difficulty -->
+                                <td><a href="{{ resource[8] }}" class="btn btn-sm btn-primary" target="_blank">View</a></td> <!-- Link Button -->
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    
+// Handle switching between Frontend, Backend, and DevOps tables
+document.getElementById('frontend-tab').addEventListener('click', function() {
+    showTable('frontend', this);
+});
+
+document.getElementById('backend-tab').addEventListener('click', function() {
+    showTable('backend', this);
+});
+
+document.getElementById('devops-tab').addEventListener('click', function() {
+    showTable('devops', this);
+});
+
+function showTable(selected, activeButton) {
+    // Hide all tables
+    document.getElementById('frontend-table').style.display = 'none';
+    document.getElementById('backend-table').style.display = 'none';
+    document.getElementById('devops-table').style.display = 'none';
+
+    // Display the selected table
+    document.getElementById(selected + '-table').style.display = 'block';
+
+    // Reset all buttons to inactive style
+    document.querySelectorAll('.topic-tab').forEach(button => {
+        button.classList.remove('active-btn');
+        button.classList.add('inactive-btn');
+    });
+
+    // Set the active button style
+    activeButton.classList.remove('inactive-btn');
+    activeButton.classList.add('active-btn');
+}
+
+
+
+
+
+
+// Function to load CSV data
+function loadCSVData() {
+    fetch('/static/assets/webdevtopics.csv')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+            return response.text();
+        })
+        .then(csvText => {
+            const rows = csvText.trim().split('\n').slice(1); // Split CSV by lines and skip header
+            let frontendHTML = '';
+            let backendHTML = '';
+            let devopsHTML = '';
+
+            const processRows = (part) => {
+                let html = ''; // HTML for the specific part
+                let currentMainTopic = ''; // Reset current main topic
+                let currentRowspan = 0; // Reset rowspan counter
+                let tempHTML = ''; // Reset temporary HTML
+
+                rows.forEach(row => {
+                    const columns = row.split(','); // Split each row into columns
+                    const partType = columns[0].trim();
+                    const Main = columns[1]?.trim();
+                    const Sub = columns[2]?.trim();
+
+                    if (partType.toLowerCase() === part) {
+                        if (Main) {
+                            // If there's an existing main topic, finalize its rowspan
+                            if (currentMainTopic) {
+                                html += `<tr><td class="main-topic-cell" rowspan="${currentRowspan}">${currentMainTopic}</td>${tempHTML}</tr>`;
+                                tempHTML = '';
+                            }
+                            // Start a new main topic
+                            currentMainTopic = Main;
+                            currentRowspan = 1;
+                            tempHTML = `<td>${Sub}</td></tr>`;
+                        } else {
+                            // Increment rowspan and add the subtopic
+                            currentRowspan++;
+                            tempHTML += `<tr><td>${Sub}</td></tr>`;
+                        }
+                    }
+                });
+
+                // Finalize the last main topic for this part
+                if (currentMainTopic) {
+                    html += `<tr><td class="main-topic-cell" rowspan="${currentRowspan}">${currentMainTopic}</td>${tempHTML}</tr>`;
+                }
+
+                return html;
+            };
+
+            // Generate HTML for each part
+            frontendHTML = processRows('front');
+            backendHTML = processRows('back');
+            devopsHTML = processRows('dev');
+
+            // Insert the generated HTML into the respective tables
+            document.querySelector('#frontend-table tbody').innerHTML = frontendHTML;
+            document.querySelector('#backend-table tbody').innerHTML = backendHTML;
+            document.querySelector('#devops-table tbody').innerHTML = devopsHTML;
+        })
+        .catch(error => console.error('Error loading CSV data:', error));
+}
+
+// Call the function to load data
+loadCSVData();
+
+
+
+
+
+
+
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development | SkillNav</title>
+    
+    <!~~ Link to Bootstrap CSS ~~>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!~~ Link to Our Custom CSS ~~>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+    <!~~ Old Basic Navbar 
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="navbar-brand">SkillNav | SYI</a>
+        <ul class="navbar-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('webdev') }}">Web Development</a></li>
+            <li><a href="{{ url_for('dsa') }}">DSA</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+    ~~>
+
+    <!~~ New Bootstrap Nav Bar ~~>
+    <nav class="navbar navbar-expand-lg navbar-customcol>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('home') }}">SkillNav | SYI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('webdev') }}">Web Development</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('dsa') }}">DSA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header header-customcol">
+        <h1>Web Development Resources</h1>
+        <p>Explore curated resources to master HTML, CSS, JavaScript, and more!</p>
+    </header>
+
+
+    <!~~ Old Footer Section 
+    <footer>
+        <p>&copy; 2024 SkillNav | SYI</p>
+    </footer>
+    ~~>
+
+    <!~~ New Bootstrap Footer ~~>
+    <footer class="footer-customcol py-4">
+        <p>&copy; 2024 SkillNav | SYI</p>
+    </footer>
+
+    <!~~ Bootstrap JS and Popper.js (for interactive components like dropdowns) ~~>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!~~ Link to Our JS ~~> <!~~ Use Flask's url_for to link JS ~~>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+-->

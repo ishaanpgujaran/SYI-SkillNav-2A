@@ -1,0 +1,88 @@
+Part,Main,Sub
+Front,Internet Fundamentals ,Working of Internet
+Front,,Working of Browser
+Front,,HTTP / HTTPS 
+Front,,Domain Name & DNS
+Front,,Hosting 
+Front,HTML ,HTML Basics
+Front,,HTML Semantics
+Front,,Forms & Validation 
+Front,CSS,CSS Basics
+Front,,CSS Flexbox
+Front,,CSS Grid
+Front,,CSS Media Queries
+Front,Chrome Dev Tools,Elements Tab
+Front,,Console Tab
+Front,,Networks Tab
+Front,,Source Tabs
+Front,Javascript ,JS Basics
+Front,,DOM Manipulation
+Front,,"JS Intermediate - Scoping , Promises , Inheritance"
+Front,,Fetch API / AJAX 
+Front,Web Design,UI Basics
+Front,,UX Basics
+Front,Version Control System,Git 
+Front,,GitHub
+Front,Package Manager,npm
+Front,,yarn 
+Front,Frontend Framework ,React
+Front,,Angular
+Front,,Vue
+Front,React JS,Basics
+Front,,Components 
+Front,,Hooks
+Front,,Rendering 
+Front,,Routers
+Front,React Ecosystem,State Management - Zustland / Redux
+Front,,Libraries - Shadon UI / Radix UI
+Front,,API Calls - React Query 
+Front,CSS Framework ,Bootstrap
+Front,,Tailwind CSS
+Front,Testing,Jest
+Front,,Vitest
+Front,,React Testing Library
+Front,,Playwrite
+Front,CSS Preprocessor (Optional),SASS
+Front,Build Tools (Optional),Prettier
+Front,,ESLint
+Front,,Vite
+Front,,esbuild
+Front,Further Frontend Development,Typescript
+Front,,Next JS
+Back,Linux Fundamentals,Basic Terminal Commands
+Back,Select Language ,Javascript
+Back,,Java
+Back,,Python 
+Back,,"Others - PHP , C# , Go , Ruby"
+Back,Web Frameworks,JS - Node JS & Express JS
+Back,,Java - Spring Boot
+Back,,Python - Flask / Django 
+Back,,Others
+Back,Basics of Web Framework ,Node JS & Express JS Basics
+Back,,
+Back,Databases ,Relational - PostgreSQL or MySQL
+Back,,"No SQL - MongoDB , Firebase , Cassandra "
+Back,API Development,REST
+Back,,JSON APIs
+Back,,JWT Authentication
+Back,Caching,Redis
+Back,Web Sockets ,Socket.io
+Back,,uWebSocket.js
+Back,Web Security ,Frontend Web Security
+Back,,Backend Web Security
+Dev,Basic Networking Protocols ,DNS
+Dev,,HTTP
+Dev,,HTTPS
+Dev,,SSL / TLS
+Dev,,SSH
+Dev,Cloud Providers & Serverless Computing,AWS & AWS Lambda
+Dev,,Azure & Azure Functions
+Dev,,Google Cloud & Cloudflare
+Dev,CI / CD,GitHub Actions 
+Dev,Configiration Management,Ansible
+Dev,Provisioning,Terraform
+Dev,Containerization & Virtualization,Kubernets
+Dev,,Docker
+Dev,Monitoring,Promentheus
+Dev,,Grafana 
+Dev,,Monit
