@@ -3,7 +3,7 @@ import isodate
 from datetime import datetime
 
 
-#Using YouTube API to Extract More Details 
+#Using YouTube API to Extract More Details for Web Development YouTube Resources 
                 
 # YouTube Data API setup
 api_key = "AIzaSyAZvgYq31O_Pfv3a2-3do9plUyHTQypFD8"  

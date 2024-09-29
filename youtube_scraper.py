@@ -11,8 +11,7 @@ from youtube_api import (
     extract_video_id, extract_playlist_id, format_number, convert_published_date
 )
 
-
-
+#Using Selenium Extract Details of Web Development YouTube Resources
 
 def youtube_scraper():
     # Set up Selenium WebDriver
