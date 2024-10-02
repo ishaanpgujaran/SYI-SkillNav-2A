@@ -40,7 +40,30 @@ def webdev():
 # Route for DSA Page
 @app.route('/dsa')
 def dsa():
-    return render_template('dsa.html')
+    conn = sqlite3.connect('normalized_skillnav.db')
+    c = conn.cursor()
+
+    # Fetch the top 6 resources for "Top Resources" sorted by score (category DSA)
+    c.execute("""
+        SELECT title, creator, description, platform, duration, views, likes, published_on, link, thumbnail, type, difficulty 
+        FROM normalized_resources 
+        WHERE category = 'DSA' 
+        ORDER BY score DESC LIMIT 6
+    """)
+    top_resources = c.fetchall()
+
+    # Fetch all resources for "All Resources" (category DSA)
+    c.execute("""
+        SELECT title, creator, description, platform, duration, views, likes, published_on, link, thumbnail, type, difficulty 
+        FROM normalized_resources 
+        WHERE category = 'DSA' 
+        ORDER BY score DESC
+    """)
+    all_resources = c.fetchall()
+
+    conn.close()
+
+    return render_template('dsa.html', top_resources=top_resources, all_resources=all_resources)
 
 # Route for About Us Page
 @app.route('/about')

@@ -1,0 +1,46 @@
+Part,Main,Sub
+Basic,Pick Language,C++
+Basic,,Java
+Basic,,Python
+Basic,,Javascript
+Basic,,Any Other
+Basic,Language Basics,Flowchart & Pseudo Code
+Basic,,Patterns 
+Basic,,"Conditions , Loops , Operators"
+Basic,,"Functions , Arrays"
+Basic,Complexity,Time Complexity
+Basic,,Space Complexity
+Basic,Standard Template Library,C++ STL 
+Basic,,Java Collection
+Basic,OOPS Concept,Classes & Objects
+Basic,,Inheritance
+Basic,,Encapsulation
+Basic,,Abstraction
+Basic,,Polymorphism
+Basic,Basic Maths,UI UX Basics
+Basic,Basic DSA,Basic Recursion
+Basic,,Basic Hashing
+Basic,Sorting Part 1,Selection Sort
+Basic,,Bubble Sort
+Basic,,Insertion Sort 
+Core,Arrays ,
+Core,Binary Search,
+Core,Strings,
+Core,Pointers & Memory Management,
+Core,Linked List,
+Core,Sorting Part 2,Merge Sort
+Core,,Quick Sort
+Adv,Advance Recursion ,
+Adv,Bit Manipulation & Advance Maths,
+Adv,Stacks & Queue ,
+Adv,Sliding Window & 2 Pointer,
+Adv,Trees,Trees
+Adv,,Binary Tree
+Adv,,Binary Search Tree
+Adv,,AVL Tree
+Adv,Heaps,
+Adv,Graphs,
+Adv,Greedy Algorithm ,
+Adv,Dynamic Programming ,
+Adv,Tries,
+Adv,Strings Hard Level,

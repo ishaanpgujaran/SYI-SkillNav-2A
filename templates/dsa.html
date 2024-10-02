@@ -3,11 +3,372 @@
 {% block title %} Data Structures & Algorithms | SkillNav {% endblock %}
 
 {% block content %}
-<!-- New Bootstrap Header -->
-<header class="header header-customcol">
-    <h1>DSA Resources</h1>
-    <p>Curated resources to help you ace Data Structures & Algorithms.</p>
-</header>
+<!-- Introduction Section -->
+<section id="webdev-intro" class="py-5 text-center">
+    <div class="container">
+        <h1 class="display-4">Welcome to Data Structure & Algorithms</h1>
+        <p class="lead">Begin your Journey of Cracking Top Companies with Data Structures & Algorithms - The Building Blocks of Efficient Programming.</p>
+        <a href="#resources" class="btn btn-primary btn-lg mt-3">Get Started with Web Development</a>
+    </div>
+</section>
+
+
+<!-- Roadmap Section with Tabs -->
+<section id="roadmap" class="py-5 bg-white">
+    <div class="container">
+        <h2 class="text-center mb-4">Data Structures & Algorithms Roadmap</h2>
+        
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs justify-content-center" id="roadmapTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="visual-tab" data-bs-toggle="tab" data-bs-target="#visual-roadmap" type="button" role="tab" aria-controls="visual-roadmap" aria-selected="true">
+                    Visual Roadmap
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="topics-tab" data-bs-toggle="tab" data-bs-target="#topics-list" type="button" role="tab" aria-controls="topics-list" aria-selected="false">
+                    Topic List
+                </button>
+            </li>
+        </ul>
+        
+        <!-- Tab Content -->
+        <div class="tab-content mt-4" id="roadmapTabContent">
+            <!-- Visual Roadmap Content -->
+            <div class="tab-pane fade show active" id="visual-roadmap" role="tabpanel" aria-labelledby="visual-tab">
+                <!-- Placeholder for the interactive visual roadmap (to be created in Step 2) -->
+                <!-- Visual Roadmap Section Embedded with Google Drive -->
+                <div id="visual-roadmap" style="width: 100%; height: 700px; border: none ; margin: 20px 0;">
+                    <iframe 
+                        src="https://drive.google.com/file/d/15nDULMhxnIVENmJ_Eri3YzYJ5jNJFcSv/preview" 
+                        style="width: 100%; height: 100%; border: none; border-radius: 8px;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    </iframe>
+                </div>
+            </div>
+            
+            <!-- Topics List Content -->
+            <div class="tab-pane fade" id="topics-list" role="tabpanel" aria-labelledby="topics-tab">
+                <!-- Topic List Content with Tabs for Table View -->
+                <!-- Tab Navigation for Topics -->
+                <div class="text-center mb-2">
+                    <button id="frontend-tab" class="topic-tab active-btn">Language Basics</button>
+                    <button id="backend-tab" class="topic-tab inactive-btn">Core DSA</button>
+                    <button id="devops-tab" class="topic-tab inactive-btn">Advance DSA</button>
+                </div>
+
+                <!-- Frontend Table -->
+                <div id="frontend-table" class="table-responsive">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>Main Topic</th>
+                                <th>Subtopics</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Backend Table (Hidden by default) -->
+                <div id="backend-table" class="table-responsive" style="display: none;">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>Main Topic</th>
+                                <th>Subtopics</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- DevOps Table (Hidden by default) -->
+                <div id="devops-table" class="table-responsive" style="display: none;">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>Main Topic</th>
+                                <th>Subtopics</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<!-- DSA Resources Section -->
+<section id="resources" class="py-5 bg-white">
+    <div class="container">
+        <h2 class="text-center mb-4">DSA Resources</h2>
+
+        <!-- Tabs for Top Resources and All Resources -->
+        <ul class="nav nav-tabs justify-content-center mb-4" id="resourceTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="top-resources-tab" data-bs-toggle="tab" data-bs-target="#top-resources" type="button" role="tab" aria-controls="top-resources" aria-selected="true">
+                    Top Resources
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="all-resources-tab" data-bs-toggle="tab" data-bs-target="#all-resources" type="button" role="tab" aria-controls="all-resources" aria-selected="false">
+                    All Resources
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab Contents for Resources -->
+        <div class="tab-content" id="resourceTabContent">
+            <!-- Top Resources Content: Horizontal Cards -->
+            <div class="tab-pane fade show active" id="top-resources" role="tabpanel" aria-labelledby="top-resources-tab">
+                <div id="top-resources-list" class="row gy-4">
+                    {% for resource in top_resources %}
+                    <div class="col-md-12">
+                        <div class="card resource-card-horizontal shadow-sm">
+                            <div class="row g-0">
+                                <!-- Thumbnail on the left -->
+                                <div class="col-md-4">
+                                    <img src="{{ resource[9] }}" class="card-img-left" alt="{{ resource[0] }}">
+                                </div>
+                                <!-- Card content on the right -->
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ resource[0] }}</h5> <!-- Title -->
+                                        <p><strong>Creator:</strong> {{ resource[1] }}</p> <!-- Creator -->
+                                        <p><strong>Platform:</strong> {{ resource[3] }}</p> <!-- Platform -->
+                                        <p><strong>Type:</strong> {{ resource[10] }}</p> <!-- Type -->
+                                        <p><strong>Duration:</strong> {{ resource[4] }}</p> <!-- Duration -->
+                                        <p><strong>Views:</strong> {{ resource[5] }}
+                                            {% if resource[10] == 'Playlist' %}
+                                            <small><em>(Avg: {{ resource[5] }} per video)</em></small>
+                                            {% endif %}
+                                        </p>
+                                        <p><strong>Likes:</strong> {{ resource[6] }}
+                                            {% if resource[10] == 'Playlist' %}
+                                            <small><em>(Avg: {{ resource[6] }} per video)</em></small>
+                                            {% endif %}
+                                        </p>
+                                        <!-- Description Handling -->
+                                        <p>
+                                            <strong>Description:</strong>
+                                            {% if resource[2] %}
+                                            <span class="description">{{ resource[2][:200] }}...</span> <!-- Shortened Description -->
+                                            {% else %}
+                                            <span class="description">This resource offers comprehensive knowledge about {{ resource.category }}.</span>
+                                            {% endif %}
+                                        </p>
+                                        <!-- Link Button -->
+                                        <a href="{{ resource[8] }}" class="btn btn-primary" target="_blank">Go to Resource</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- All Resources Content -->
+            <div class="tab-pane fade" id="all-resources" role="tabpanel" aria-labelledby="all-resources-tab">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Resource</th>
+                                <th>Details</th>
+                                <th>Additional Info</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for resource in all_resources %}
+                            <tr>
+                                <!-- Resource Info: Thumbnail, Title, Creator, and Description -->
+                                <td>
+                                    <div class="d-flex align-items-start">
+                                        <img src="{{ resource[9] }}" alt="{{ resource[0] }}" style="width: 80px; height: auto; margin-right: 10px;"> <!-- Thumbnail -->
+                                        <div>
+                                            <a href="{{ resource[8] }}" target="_blank" style="font-weight: bold;">{{ resource[0] }}</a> <!-- Title with Link -->
+                                            <p><small>by {{ resource[1] }}</small></p> <!-- Creator -->
+                                            <p>{{ resource[2][:80] }}...</p> <!-- Shortened Description -->
+                                        </div>
+                                    </div>
+                                </td>
+                                <!-- Details: Platform, Duration, Views, Likes -->
+                                <td>
+                                    <p><strong>Platform:</strong> {{ resource[3] }}</p>
+                                    <p><strong>Duration:</strong> {{ resource[4] }}</p>
+                                    <p><strong>Views:</strong> {{ resource[5] }}
+                                        {% if resource[10] == 'Playlist' %}
+                                        <small><em>(Avg: {{ resource[5] }} per video)</em></small>
+                                        {% endif %}
+                                    </p>
+                                    <p><strong>Likes:</strong> {{ resource[6] }}
+                                        {% if resource[10] == 'Playlist' %}
+                                        <small><em>(Avg: {{ resource[6] }} per video)</em></small>
+                                        {% endif %}
+                                    </p>
+                                </td>
+                                <!-- Additional Info: Published On, Type, and Link Button -->
+                                <td>
+                                    <p><strong>Published On:</strong> {{ resource[7] }}</p>
+                                    <p><strong>Type:</strong> {{ resource[10] }}</p>
+                                    <a href="{{ resource[8] }}" class="btn btn-sm btn-success" target="_blank">View Resource</a> <!-- Link Button -->
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    
+    // Handle switching between Frontend, Backend, and DevOps tables
+    document.getElementById('frontend-tab').addEventListener('click', function() {
+        showTable('frontend', this);
+    });
+    
+    document.getElementById('backend-tab').addEventListener('click', function() {
+        showTable('backend', this);
+    });
+    
+    document.getElementById('devops-tab').addEventListener('click', function() {
+        showTable('devops', this);
+    });
+    
+    function showTable(selected, activeButton) {
+        // Hide all tables
+        document.getElementById('frontend-table').style.display = 'none';
+        document.getElementById('backend-table').style.display = 'none';
+        document.getElementById('devops-table').style.display = 'none';
+    
+        // Display the selected table
+        document.getElementById(selected + '-table').style.display = 'block';
+    
+        // Reset all buttons to inactive style
+        document.querySelectorAll('.topic-tab').forEach(button => {
+            button.classList.remove('active-btn');
+            button.classList.add('inactive-btn');
+        });
+    
+        // Set the active button style
+        activeButton.classList.remove('inactive-btn');
+        activeButton.classList.add('active-btn');
+    }
+    
+    
+    
+    
+    
+    
+    // Function to load CSV data
+    function loadCSVData() {
+        fetch('/static/assets/dsatopic.csv')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.statusText}`);
+                }
+                return response.text();
+            })
+            .then(csvText => {
+                const rows = csvText.trim().split('\n').slice(1); // Split CSV by lines and skip header
+                let frontendHTML = '';
+                let backendHTML = '';
+                let devopsHTML = '';
+    
+                const processRows = (part) => {
+                    let html = ''; // HTML for the specific part
+                    let currentMainTopic = ''; // Reset current main topic
+                    let currentRowspan = 0; // Reset rowspan counter
+                    let tempHTML = ''; // Reset temporary HTML
+    
+                    rows.forEach(row => {
+                        const columns = row.split(','); // Split each row into columns
+                        const partType = columns[0].trim();
+                        const Main = columns[1]?.trim();
+                        const Sub = columns[2]?.trim();
+    
+                        if (partType.toLowerCase() === part) {
+                            if (Main) {
+                                // If there's an existing main topic, finalize its rowspan
+                                if (currentMainTopic) {
+                                    html += `<tr><td class="main-topic-cell" rowspan="${currentRowspan}">${currentMainTopic}</td>${tempHTML}</tr>`;
+                                    tempHTML = '';
+                                }
+                                // Start a new main topic
+                                currentMainTopic = Main;
+                                currentRowspan = 1;
+                                tempHTML = `<td>${Sub}</td></tr>`;
+                            } else {
+                                // Increment rowspan and add the subtopic
+                                currentRowspan++;
+                                tempHTML += `<tr><td>${Sub}</td></tr>`;
+                            }
+                        }
+                    });
+    
+                    // Finalize the last main topic for this part
+                    if (currentMainTopic) {
+                        html += `<tr><td class="main-topic-cell" rowspan="${currentRowspan}">${currentMainTopic}</td>${tempHTML}</tr>`;
+                    }
+    
+                    return html;
+                };
+    
+                // Generate HTML for each part
+                frontendHTML = processRows('basic');
+                backendHTML = processRows('core');
+                devopsHTML = processRows('adv');
+    
+                // Insert the generated HTML into the respective tables
+                document.querySelector('#frontend-table tbody').innerHTML = frontendHTML;
+                document.querySelector('#backend-table tbody').innerHTML = backendHTML;
+                document.querySelector('#devops-table tbody').innerHTML = devopsHTML;
+            })
+            .catch(error => console.error('Error loading CSV data:', error));
+    }
+    
+    // Call the function to load data
+    loadCSVData();
+    
+    
+    
+    
+    
+    
+    
+    </script>
+
+
+
+
+
 {% endblock %}
 
 
