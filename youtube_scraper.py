@@ -33,7 +33,7 @@ def youtube_scraper():
     resources = driver.find_elements(By.XPATH, '//ytd-video-renderer | //ytd-playlist-renderer')
 
     # Limit to only the first 10 results
-    resources = resources[:2]
+    resources = resources[:10]
 
     if resources:
         print(f"Found {len(resources)} resources. Extracting data...")

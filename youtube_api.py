@@ -243,7 +243,7 @@ def convert_published_date(published_at):
         # Convert ISO 8601 string to datetime object
         date_obj = datetime.strptime(published_at, "%Y-%m-%dT%H:%M:%SZ")
         # Format it to "Day Month Year" format (e.g., 25 Sep 2022)
-        formatted_date = date_obj.strftime("%d %b %Y")
+        formatted_date = date_obj.strftime("%d/%m/%Y")
         return formatted_date
     except Exception as e:
         print(f"Error converting published date: {e}")

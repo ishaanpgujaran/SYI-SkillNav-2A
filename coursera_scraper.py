@@ -123,7 +123,7 @@ def coursera_scraper():
                 c.execute('''
                     INSERT INTO resources (category, title, creator, description, platform, duration, views, likes, published_on, link, thumbnail, type, difficulty)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                ''', ('Web Development', title, creator, description, 'Coursera', duration, course_review, course_rating, '', course_url, thumbnail_url, 'Course', difficulty))
+                ''', ('Web Development', title, creator, description, 'Coursera', duration, course_rating, course_review , 'Up to date', course_url, thumbnail_url, 'Course', difficulty))
                 
                 print(f"Added Coursera Course: {title}")
 
