@@ -420,3 +420,145 @@ body, html {
     margin: 0;
 }
 
+
+
+
+
+
+
+
+
+
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+/* Hero Section */
+#about-hero {
+    background: linear-gradient(135deg, #dfd8ff, #77b5b8);
+    color: rgb(0, 2, 29) !important;
+    padding: 100px 0;
+    animation: fadeIn 2s ease-in-out;
+    height: 400px;
+}
+
+#about-hero h1 {
+    animation: slideInFromBottom 1.5s ease-out;
+}
+
+#about-hero p {
+    animation: slideInFromBottom 2s ease-out;
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Mission Section */
+#mission {
+    background-color: #c5f8ff !important;
+    padding: 80px 0;
+    animation: fadeIn 2s ease-in-out;
+    height : 300px
+}
+
+#mission h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#mission p {
+    font-size: 1.25rem;
+    color: #555;
+}
+
+/* Motivation Section */
+#motivation {
+    background-color: #fde2ff !important;
+    padding: 80px 0;
+    animation: fadeIn 2s ease-in-out;
+    height: 300px;
+}
+
+/* Team Section */
+#team .team-member {
+    background-color: #fffde0 !important;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#team .team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+#team img {
+    border-radius: 50%;
+    max-width: 150px;
+    transition: transform 0.3s ease;
+}
+
+#team img:hover {
+    transform: scale(1.1);
+}
+
+#team h5 {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#team p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Contact Section */
+#contact {
+    padding: 80px 0;
+    background-color: #bdbdbd !important;
+}
+
+#contact h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#contact ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+#contact ul li {
+    margin-bottom: 15px;
+}
+
+#contact a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contact a:hover {
+    color: #0056b3;
+}
