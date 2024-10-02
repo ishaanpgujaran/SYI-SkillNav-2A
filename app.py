@@ -10,34 +10,28 @@ def home():
     return render_template('index.html')
 
 # Route for Web Development Page
-#@app.route('/web-development')
-#def webdev():
-    return render_template('webdev.html')
-
-@app.route('/web-devlopment')
+@app.route('/web-development')
 def webdev():
-    conn = sqlite3.connect('skillnav.db')
+    conn = sqlite3.connect('normalized_skillnav.db')
     c = conn.cursor()
     
-    # Fetch the top 5 resources for "Top Resources"
+    # Fetch the top 6 resources for "Top Resources" sorted by score
     c.execute("""
         SELECT title, creator, description, platform, duration, views, likes, published_on, link, thumbnail, type, difficulty 
-        FROM resources 
+        FROM normalized_resources 
         WHERE category = 'Web Development' 
-        ORDER BY views DESC LIMIT 5
+        ORDER BY score DESC LIMIT 6
     """)
     top_resources = c.fetchall()
-    print("Top Resources:", top_resources)  # Debugging statement
 
     # Fetch all resources for "All Resources"
     c.execute("""
         SELECT title, creator, description, platform, duration, views, likes, published_on, link, thumbnail, type, difficulty 
-        FROM resources 
+        FROM normalized_resources 
         WHERE category = 'Web Development' 
-        ORDER BY views DESC
+        ORDER BY score DESC
     """)
     all_resources = c.fetchall()
-    print("All Resources:", all_resources)  # Debugging statement
 
     conn.close()
     

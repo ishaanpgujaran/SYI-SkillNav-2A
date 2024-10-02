@@ -338,3 +338,85 @@ body, html {
 .table-responsive {
     overflow-x: auto;
 }
+
+
+
+
+
+
+/* Horizontal Cards */
+.resource-card-horizontal {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+}
+
+.resource-card-horizontal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-left {
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    object-fit: scale-down;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+}
+
+.card-body {
+    padding-left: 20px;
+    padding-top: 25px;
+
+}
+
+.resource-card-horizontal .description {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;  /* Adjust based on the layout */
+}
+
+
+
+/* Styling for Resource Table */
+.table th, .table td {
+    padding: 1rem;
+    vertical-align: top;
+}
+
+.table a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.table a:hover {
+    color: #0056b3;
+}
+
+.table .btn-sm {
+    background-color: #28a745;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.table .btn-sm:hover {
+    background-color: #218838;
+}
+
+.table .d-flex {
+    display: flex;
+    align-items: start;
+}
+
+.table img {
+    border-radius: 5px;
+}
+
+.table p {
+    margin: 0;
+}
+

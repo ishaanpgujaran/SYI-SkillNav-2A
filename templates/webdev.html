@@ -125,7 +125,7 @@
 <section id="resources" class="py-5 bg-white">
     <div class="container">
         <h2 class="text-center mb-4">Web Development Resources</h2>
-        
+
         <!-- Tabs for Top Resources and All Resources -->
         <ul class="nav nav-tabs justify-content-center mb-4" id="resourceTabs" role="tablist">
             <li class="nav-item" role="presentation">
@@ -142,25 +142,48 @@
 
         <!-- Tab Contents for Resources -->
         <div class="tab-content" id="resourceTabContent">
-            <!-- Top Resources Content -->
+            <!-- Top Resources Content: Horizontal Cards -->
             <div class="tab-pane fade show active" id="top-resources" role="tabpanel" aria-labelledby="top-resources-tab">
                 <div id="top-resources-list" class="row gy-4">
                     {% for resource in top_resources %}
-                    <div class="col-md-4">
-                        <div class="card h-100">
-                            <img src="{{ resource[9] }}" class="card-img-top" alt="{{ resource[0] }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ resource[0] }}</h5> <!-- Title -->
-                                <p class="card-text"><strong>Creator:</strong> {{ resource[1] }}</p> <!-- Creator -->
-                                <p class="card-text"><strong>Description:</strong> {{ resource[2] }}</p> <!-- Description -->
-                                <p class="card-text"><strong>Platform:</strong> {{ resource[3] }}</p> <!-- Platform -->
-                                <p class="card-text"><strong>Duration:</strong> {{ resource[4] }}</p> <!-- Duration -->
-                                <p class="card-text"><strong>Views:</strong> {{ resource[5] }}</p> <!-- Views -->
-                                <p class="card-text"><strong>Likes:</strong> {{ resource[6] }}</p> <!-- Likes -->
-                                <p class="card-text"><strong>Published On:</strong> {{ resource[7] }}</p> <!-- Published On -->
-                                <p class="card-text"><strong>Type:</strong> {{ resource[10] }}</p> <!-- Type -->
-                                <p class="card-text"><strong>Difficulty:</strong> {{ resource[11] }}</p> <!-- Difficulty -->
-                                <a href="{{ resource[8] }}" class="btn btn-primary" target="_blank">View Resource</a> <!-- Link Button -->
+                    <div class="col-lg-12">
+                        <div class="card resource-card-horizontal shadow-sm">
+                            <div class="row g-0">
+                                <!-- Thumbnail on the left -->
+                                <div class="col-lg-4">
+                                    <img src="{{ resource[9] }}" class="card-img-left" alt="{{ resource[0] }}" width="514px" height="385px">
+                                </div>
+                                <!-- Card content on the right -->
+                                <div class="col-lg-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ resource[0] }}</h5> <!-- Title -->
+                                        <p><strong>Creator:</strong> {{ resource[1] }}</p> <!-- Creator -->
+                                        <p><strong>Platform:</strong> {{ resource[3] }}</p> <!-- Platform -->
+                                        <p><strong>Type:</strong> {{ resource[10] }}</p> <!-- Type -->
+                                        <p><strong>Duration:</strong> {{ resource[4] }}</p> <!-- Duration -->
+                                        <p><strong>Views:</strong> {{ resource[5] }}
+                                            {% if resource[10] == 'Playlist' %}
+                                            <small><em>(Avg: {{ resource[5] }} per video)</em></small>
+                                            {% endif %}
+                                        </p>
+                                        <p><strong>Likes:</strong> {{ resource[6] }}
+                                            {% if resource[10] == 'Playlist' %}
+                                            <small><em>(Avg: {{ resource[6] }} per video)</em></small>
+                                            {% endif %}
+                                        </p>
+                                        <!-- Description Handling -->
+                                        <p>
+                                            <strong>Description:</strong>
+                                            {% if resource[2] %}
+                                            <span class="description">{{ resource[2][:200] }}...</span> <!-- Shortened Description -->
+                                            {% else %}
+                                            <span class="description">This resource offers comprehensive knowledge about {{ resource.category }}.</span>
+                                            {% endif %}
+                                        </p>
+                                        <!-- Link Button -->
+                                        <a href="{{ resource[8] }}" class="btn btn-primary" target="_blank">Go to Resource</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -168,42 +191,52 @@
                 </div>
             </div>
 
-            
-            <!-- All Resources Content -->
+            <!-- All Resources Content: Improved Table Layout -->
             <div class="tab-pane fade" id="all-resources" role="tabpanel" aria-labelledby="all-resources-tab">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Thumbnail</th>
-                                <th>Title</th>
-                                <th>Creator</th>
-                                <th>Description</th>
-                                <th>Platform</th>
-                                <th>Duration</th>
-                                <th>Views</th>
-                                <th>Likes</th>
-                                <th>Published On</th>
-                                <th>Type</th>
-                                <th>Difficulty</th>
-                                <th>Link</th>
+                                <th>Resource</th>
+                                <th>Details</th>
+                                <th>Additional Info</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for resource in all_resources %}
                             <tr>
-                                <td><img src="{{ resource[9] }}" alt="{{ resource[0] }}" style="width: 120px; height: auto;"></td> <!-- Thumbnail -->
-                                <td>{{ resource[0] }}</td> <!-- Title -->
-                                <td>{{ resource[1] }}</td> <!-- Creator -->
-                                <td>{{ resource[2] }}</td> <!-- Description -->
-                                <td>{{ resource[3] }}</td> <!-- Platform -->
-                                <td>{{ resource[4] }}</td> <!-- Duration -->
-                                <td>{{ resource[5] }}</td> <!-- Views -->
-                                <td>{{ resource[6] }}</td> <!-- Likes -->
-                                <td>{{ resource[7] }}</td> <!-- Published On -->
-                                <td>{{ resource[10] }}</td> <!-- Type -->
-                                <td>{{ resource[11] }}</td> <!-- Difficulty -->
-                                <td><a href="{{ resource[8] }}" class="btn btn-sm btn-primary" target="_blank">View</a></td> <!-- Link Button -->
+                                <!-- Resource Info: Thumbnail, Title, Creator, and Description -->
+                                <td>
+                                    <div class="d-flex align-items-start">
+                                        <img src="{{ resource[9] }}" alt="{{ resource[0] }}" style="width: 80px; height: auto; margin-right: 10px;"> <!-- Thumbnail -->
+                                        <div>
+                                            <a href="{{ resource[8] }}" target="_blank" style="font-weight: bold;">{{ resource[0] }}</a> <!-- Title with Link -->
+                                            <p><small>by {{ resource[1] }}</small></p> <!-- Creator -->
+                                            <p>{{ resource[2][:80] }}...</p> <!-- Shortened Description -->
+                                        </div>
+                                    </div>
+                                </td>
+                                <!-- Details: Platform, Duration, Views, Likes -->
+                                <td>
+                                    <p><strong>Platform:</strong> {{ resource[3] }}</p>
+                                    <p><strong>Duration:</strong> {{ resource[4] }}</p>
+                                    <p><strong>Views:</strong> {{ resource[5] }}
+                                        {% if resource[10] == 'Playlist' %}
+                                        <small><em>(Avg: {{ resource[5] }} per video)</em></small>
+                                        {% endif %}
+                                    </p>
+                                    <p><strong>Likes:</strong> {{ resource[6] }}
+                                        {% if resource[10] == 'Playlist' %}
+                                        <small><em>(Avg: {{ resource[6] }} per video)</em></small>
+                                        {% endif %}
+                                    </p>
+                                </td>
+                                <!-- Additional Info: Published On, Type, and Link Button -->
+                                <td>
+                                    <p><strong>Published On:</strong> {{ resource[7] }}</p>
+                                    <p><strong>Type:</strong> {{ resource[10] }}</p>
+                                    <a href="{{ resource[8] }}" class="btn btn-sm btn-success" target="_blank">View Resource</a> <!-- Link Button -->
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -211,7 +244,9 @@
                 </div>
             </div>
 
+        </div>
 </section>
+
 
 
 
