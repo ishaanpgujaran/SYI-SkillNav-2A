@@ -30,7 +30,7 @@ def class_central_scraper():
     ccourses = driver.find_elements(By.XPATH, '//li[@class="bg-white border-all border-gray-light padding-xsmall radius-small margin-bottom-small medium-up-padding-horz-large medium-up-padding-vert-medium course-list-course"]')
 
     # Limit to only the first 10 results
-    ccourses = ccourses[:10]
+    ccourses = ccourses[:4]
     
     if ccourses:
         print(f"Found {len(ccourses)} ccourses. Extracting data...")

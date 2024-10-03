@@ -27,7 +27,7 @@ def coursera_scraper():
     courses = driver.find_elements(By.XPATH, '//li[@class="cds-9 css-0 cds-11 cds-grid-item cds-56 cds-64 cds-76 cds-90"]')
 
     # Limit to only the first 10 results
-    courses = courses[:4]
+    courses = courses[:5]
 
     if courses:
         print(f"Found {len(courses)} courses on Coursera. Extracting data...")

@@ -23,7 +23,7 @@ def youtube_scraper():
     wait = WebDriverWait(driver, 10)  # Set up an explicit wait with a timeout of 10 seconds
     
     # Open YouTube search page
-    driver.get("https://www.youtube.com/results?search_query=web+development+tutorial")
+    driver.get("https://www.youtube.com/results?search_query=web+development+course")
     time.sleep(5)  # Wait for the page to fully load
 
     # Scroll to load more videos (only once as requested)
