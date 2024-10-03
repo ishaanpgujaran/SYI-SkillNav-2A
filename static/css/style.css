@@ -26,10 +26,9 @@ body {
 }
 
 .header {
-    text-align: center;
-    padding: 100px 20px;
-    background-color: #240000;
-    color: white;
+    background-color: #D9AFD9;
+background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+
 }
 
 .cta-button {
@@ -49,7 +48,7 @@ footer {
 
 /*Creating Custom Class to Override Bootstrap using !important Rule */
 .navbar-customcol {
-    background-color: #d5ff9d !important ;
+    background-image: linear-gradient( 359.8deg,  rgba(252,255,222,1) 2.2%, rgba(182,241,171,1) 99.3% );
     color : #000 !important ;
 }
 
@@ -58,8 +57,8 @@ footer {
 }
 
 .header-customcol {
-    background-color: #240000 !important ;
-    color: #fff !important ;
+    background-image: linear-gradient( 106.8deg,  rgba(117,255,220,1) 6%, rgba(163,216,255,1) 47.6%, rgba(248,215,251,1) 87.8% );
+    
     width: 100% ;
     padding: 50px , 0 ;
     margin: 0 ;
@@ -113,7 +112,7 @@ body, html {
 
 /* -- Home Page Featured Resources Section -- */
 #featured-resources {
-    background-color: #c0c4ff; /* Light grey background to separate this section */
+    background-image: linear-gradient( 67.6deg,  rgba(225,242,254,1) -2.8%, rgba(193,224,250,1) 44.6%, rgba(19,116,197,1) 102.4% );
 }
 
 #featured-resources .card {
@@ -180,18 +179,17 @@ body, html {
 
 /* Web Development Page Introduction Section */
 #webdev-intro {
-    background-color: #1e002c;  
-    padding: 60px 0;
+    background-image: linear-gradient( 89.9deg,  rgba(178,253,238,0.96) -8.1%, rgba(207,244,254,1) 26.3%, rgba(207,244,254,0.48) 47.5%, rgba(254,219,243,0.63) 61.5%, rgba(254,219,243,1) 78.7%, rgba(254,207,210,1) 109.2% );
 }
 
 #webdev-intro h1 {
-    color: #eee9ff;  /* Use the primary blue color */
+    color: #7300d1;  /* Use the primary blue color */
     font-weight: bold;
 }
 
 #webdev-intro p {
     font-size: 1.2em;
-    color: #95fff1;  /* Darker grey for better readability */
+    color: #00573a;  /* Darker grey for better readability */
 }
 
 #webdev-intro .btn-primary {
