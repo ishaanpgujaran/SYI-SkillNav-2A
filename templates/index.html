@@ -3,13 +3,22 @@
 {% block title %} SYI SkillNav {% endblock %}
 
 {% block content %}
-<!-- New Bootstrap Header -->
-    <header class="header header-customcol text-center py-5">
-        <h1 class="display-4">Welcome to SkillNav</h1>
-        <p class="lead">Curated Micro-Skills, Organized for You</p>
-        <a href="#featured-resources" class="btn btn-light btn-lg mt-3">Get Started</a>
-    </header>
 
+<!-- New Bootstrap Header 
+<header class="header header-customcol text-center py-5">
+    <h1 class="display-4">Welcome to SkillNav</h1>
+    <p class="lead">Curated Micro-Skills, Organized for You</p>
+    <a href="#featured-resources" class="btn btn-light btn-lg mt-3">Get Started</a>
+</header>
+-->
+<!-- Updated Hero Section with Banner -->
+<header class="header header-customcol text-center py-5" >
+    <div class="container text-start">
+        <h1 class="display-4" style="padding-top: 170px; font-size: 50px; ">Self Learning Simplified!</h1>
+        <p class="lead" style="font-size: 15px; font-family: 'Courier New', Courier, monospace; font-style: italic;">Curated Resources,Structured Roadmaps, Organized for You</p>
+        <a href="#featured-resources" class="button-80">Get Started</a>
+    </div>
+</header>
 
 
 
@@ -40,6 +49,33 @@
         </div>
     </div>
 </section>
+
+
+
+
+
+<!-- Courses Curated from Top Resources Section -->
+<section id="top-resources-providers" class="py-5 bg-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Courses Curated from Top Resources</h2>
+        <div class="row justify-content-center">
+            <!-- YouTube Logo -->
+            <div class="col-md-2">
+                <img src="{{ url_for('static', filename='assets/youtube-logo.jpeg') }}" alt="YouTube" class="img-fluid mb-3" style="max-height: 80px;">
+            </div>
+            <!-- Coursera Logo -->
+            <div class="col-md-2">
+                <img src="{{ url_for('static', filename='assets/coursera-logo.png') }}" alt="Coursera" class="img-fluid mb-3" style="max-height: 80px; padding-top: 10px;">
+            </div>
+            <!-- ClassCentral Logo -->
+            <div class="col-md-2">
+                <img src="{{ url_for('static', filename='assets/classcentral-logo.jpeg') }}" alt="Class Central" class="img-fluid mb-3" style="max-height: 80px;padding-top: 10px">
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 
 
