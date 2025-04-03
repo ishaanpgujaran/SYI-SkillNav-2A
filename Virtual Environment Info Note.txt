@@ -1,0 +1,71 @@
+# ** Why we use Virtual Environment **
+    
+    - Virtual Environment ensures that dependencies don’t interfere with system-wide Python packages.
+    
+    - It allows everyone on the team to work with the same dependency versions.
+    
+    - It avoids conflicts when different projects require different package versions.
+
+
+# ** Important Note about Virtual Environment **
+    
+    - Absolute Paths: The virtual environment stores absolute paths to the Python interpreter on the 
+                      original system. When cloned, these paths may not match your system's configuration.
+    
+    - OS & Architecture Differences: If your teammate created the virtual environment on a different OS 
+                                     or system architecture, it might not work on yours.
+    
+    - Missing Dependencies: Even though venv/ was cloned, dependencies are not necessarily portable 
+                            due to compiled binaries, platform-specific packages, and Python version differences.
+
+    - It is advisable that we do not Push Virtual Environment in repository and put it in git ignore
+
+
+# ** requirements.txt - The Helper **
+
+    - It contains all installed libraries and their versions inside your virtual environment (venv). 
+    
+    - This allows other developers to install the exact same dependencies.
+
+    - Follow the steps for proper requirements.txt :- 
+        1. Creating requirements.txt for the First Time : 
+            - Command : " pip freeze > requirements.txt "
+            - Create this after you create your Virtual Environment
+            - This command saves all installed libraries (along with their versions) into requirements.txt.
+        
+        2. Updating requirements.txt :
+            - Command : " pip freeze > requirements.txt "
+            - Whenever you install any new Library , Package or anything have this practice.
+            - Always keep your requirements.txt up to date.
+            - This overwrites the previous file and saves the latest dependencies.
+            - Always update requirements.txt after adding/removing packages.
+    
+    - Whenever we set up the project in new PC this will help us to install all the necessary dependencies.
+        Command " pip install -r requirements.txt "
+    
+    - Use to remove all packages.
+        Command " pip uninstall -r requirements.txt "
+
+
+# **What to Do**
+    Follow the following steps : 
+
+        1. Delete the Cloned Virtual Environment :-  
+            " rm -rf venv/ " 
+
+        2. Create a New Virtual Environment on your Machine :-
+            " python3 -m venv venv " 
+        
+        3. Activate the Virtual Environment :-
+            " source venv/bin/activate "
+        
+        4. Install All the Dependencies from requirements.txt :-
+            " pip install -r requirements.txt " (or pip3)
+
+    - To deactivate a Virtual Environment 
+        Command " deactivate "
+    
+    - To Check which Python & Pip is being used in the Environment
+        Command " which pip " & "which python3"
+        - If Output is -> usr/bin/pip or usr/bin/python3
+        - Then Virtual Environment is not activated correctly. 
